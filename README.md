@@ -2,6 +2,8 @@
 
 Public API for supplying and verifying pseudonyms of users confirmed infected
 
+![Tests](https://github.com/ito-org/upload-api/workflows/Build/badge.svg)
+
 ## Requirements
 
 - Python 3.8+
@@ -50,4 +52,4 @@ export POETRY_ENV="development"
 poetry run flask run
 ```
 
-Then send a POST request to http://localhost:5000/v1/cases/report for example.
+Then send a POST request to http://localhost:5000/v0/cases/report for example.

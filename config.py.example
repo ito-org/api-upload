@@ -1,16 +1,16 @@
 class Config(object):
+    APPLICATION_ROOT = "/"
     DEBUG = False
     TESTING = False
-    MONGO_URI = "mongodb://localhost:27017/bandemic"
 
 
 class ProductionConfig(Config):
-    MONGO_URI = "mongodb://localhost:27017/bandemic"
+    MONGO_URI = "mongodb://localhost:27017/ito"
 
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    MONGO_URI = "mongodb://localhost:27017/bandemic"
+    MONGO_URI = "mongodb://localhost:27017/ito"
 
 
 class TestingConfig(Config):
