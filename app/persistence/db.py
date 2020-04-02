@@ -6,11 +6,12 @@ from uuid import uuid4, UUID
 from random import randrange, uniform
 import time
 from itertools import repeat
+from app.model.case import Case
 
 mongo = PyMongo()
 
 
-def insert_cases(cases: List[Any]) -> None:
+def insert_cases(cases: List[Case]) -> None:
     mongo.db.cases.insert_many(cases)
 
 
