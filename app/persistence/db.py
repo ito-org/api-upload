@@ -42,7 +42,7 @@ def insert_random_cases(n: int) -> None:
                 round(uniform(-90, 90), 1),
                 round(uniform(-180, 180), 1),
                 1,
-                random_time_in_the_past()
+                random_time_in_the_past(),
             )
         )
 
@@ -56,7 +56,7 @@ def generate_random_cases(n: int) -> List[Case]:
                 round(uniform(-90, 90), 1),
                 round(uniform(-180, 180), 1),
                 1,
-                random_time_in_the_past()
+                random_time_in_the_past(),
             )
         )
     return cases

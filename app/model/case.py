@@ -13,7 +13,14 @@ class Case:
     trust_level: int
     upload_timestamp: datetime
 
-    def __init__(self, uuid: str, lat: Optional[float], lon: Optional[float], trust_level: int, upload_timestamp: datetime):
+    def __init__(
+        self,
+        uuid: str,
+        lat: Optional[float],
+        lon: Optional[float],
+        trust_level: int,
+        upload_timestamp: datetime,
+    ):
         self.uuid = uuid
         self.lat = lat
         self.lon = lon

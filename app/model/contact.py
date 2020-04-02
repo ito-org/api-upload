@@ -14,7 +14,15 @@ class Contact:
     upload_timestamp: datetime
     case_uuid: str
 
-    def __init__(self, uuid: str, lat: Optional[float], lon: Optional[float], trust_level: int, upload_timestamp: datetime, case_uuid: str):
+    def __init__(
+        self,
+        uuid: str,
+        lat: Optional[float],
+        lon: Optional[float],
+        trust_level: int,
+        upload_timestamp: datetime,
+        case_uuid: str,
+    ):
         self.uuid = uuid
         self.lat = lat
         self.lon = lon
