@@ -18,7 +18,8 @@ def count_cases() -> int:
     return int(mongo.db.cases.count_documents({}))
 
 
-def insert_contact() -> None:
+def insert_contacts(contacts: List[Any]) -> None:
+    mongo.db.contacts.insert_many(contacts)
     return
 
 
