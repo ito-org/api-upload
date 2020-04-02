@@ -1,4 +1,5 @@
 import json
+from uuid import UUID
 from typing import List, Optional
 from flask import Response
 from datetime import datetime
@@ -7,7 +8,7 @@ from datetime import datetime
 
 
 class Contact:
-    uuid: str
+    uuid: UUID
     lat: Optional[float]
     lon: Optional[float]
     trust_level: int
@@ -16,7 +17,7 @@ class Contact:
 
     def __init__(
         self,
-        uuid: str,
+        uuid: UUID,
         lat: Optional[float],
         lon: Optional[float],
         trust_level: int,
