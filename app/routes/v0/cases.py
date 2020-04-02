@@ -13,7 +13,6 @@ def report() -> Response:
     if not (current_app.config["DEBUG"] or current_app.config["TESTING"]):
         return ApiError(501, "only available in dev and testing for now").as_response()
     cases: Optional[List[Case]] = request.get_json()
-    print(cases)
     if cases is None:
         return ApiError(
             400, "please use the application/json content type",
