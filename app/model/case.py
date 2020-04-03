@@ -28,7 +28,10 @@ class Case:
         self.trust_level = trust_level
         self.upload_timestamp = upload_timestamp
 
+    def toJSON(self) -> str:
+        return json.dumps(self, default=lambda o: o.__dict__)
+
     def as_response(self, code: int) -> Response:
         return Response(
-            json.dumps(self.__dict__), status=code, mimetype="application/json"
+            self.toJSON(), status=code, mimetype="application/json"
         )
