@@ -12,8 +12,6 @@ def report() -> Response:
         return ApiError(501, "only available in dev and testing for now").as_response()
     contacts: Optional[List[Any]]
     if contacts is None:
-        return ApiError(
-            400, "please use the application/json content type"
-        )
+        return ApiError(400, "please use the application/json content type")
     insert_contacts(contacts)
     return Response(None, status=201)
