@@ -15,4 +15,4 @@ RUN mv config.py.example config.py && \
     poetry config virtualenvs.create false && \
     poetry install
 
-CMD poetry run flask run --port=5001
+CMD poetry run flask run --host 0.0.0.0 --port=5001
