@@ -87,18 +87,6 @@ dotenv = ["python-dotenv"]
 
 [[package]]
 category = "main"
-description = "PyMongo support for Flask applications"
-name = "flask-pymongo"
-optional = false
-python-versions = "*"
-version = "2.3.0"
-
-[package.dependencies]
-Flask = ">=0.11"
-PyMongo = ">=3.3"
-
-[[package]]
-category = "main"
 description = "Various helpers to pass data to untrusted environments and back."
 name = "itsdangerous"
 optional = false
@@ -374,7 +362,7 @@ dev = ["pytest", "coverage", "tox", "sphinx", "pallets-sphinx-themes", "sphinx-i
 watchdog = ["watchdog"]
 
 [metadata]
-content-hash = "7a9229ec53ecef396c14d86c79f73099b4c7d11862c8738f3ca913364888703e"
+content-hash = "e509a6061a9d869b2553020abc393aa8ede2d9c0fbb3b1bf3fe73e974299f67f"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -405,10 +393,6 @@ colorama = [
 flask = [
     {file = "Flask-1.1.1-py2.py3-none-any.whl", hash = "sha256:45eb5a6fd193d6cf7e0cf5d8a5b31f83d5faae0293695626f539a823e93b13f6"},
     {file = "Flask-1.1.1.tar.gz", hash = "sha256:13f9f196f330c7c2c5d7a5cf91af894110ca0215ac051b5844701f2bfd934d52"},
-]
-flask-pymongo = [
-    {file = "Flask-PyMongo-2.3.0.tar.gz", hash = "sha256:620eb02dc8808a5fcb90f26cab6cba9d6bf497b15032ae3ca99df80366e33314"},
-    {file = "Flask_PyMongo-2.3.0-py2.py3-none-any.whl", hash = "sha256:8a9577a2c6d00b49f21cb5a5a8d72561730364a2d745551a85349ab02f86fc73"},
 ]
 itsdangerous = [
     {file = "itsdangerous-1.1.0-py2.py3-none-any.whl", hash = "sha256:b12271b2047cb23eeb98c8b5622e2e5c5e9abd9784a153e9d8ef9cb4dd09d749"},
