@@ -32,6 +32,4 @@ class Case:
         return json.dumps(self, default=lambda o: o.__dict__)
 
     def as_response(self, code: int) -> Response:
-        return Response(
-            self.toJSON(), status=code, mimetype="application/json"
-        )
+        return Response(self.toJSON(), status=code, mimetype="application/json")
