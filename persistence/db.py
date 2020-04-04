@@ -6,8 +6,8 @@ from uuid import uuid4, UUID
 from random import randrange, uniform
 import time
 from itertools import repeat
-from app.model.case import Case
-from app.model.contact import Contact
+from model.case import Case
+from model.contact import Contact
 
 
 class DBConnection:
@@ -46,7 +46,6 @@ class DBConnection:
                     self.random_time_in_the_past(),
                 )
             )
-
 
     def generate_random_cases(self, n: int) -> List[Case]:
         cases: List[Case] = []

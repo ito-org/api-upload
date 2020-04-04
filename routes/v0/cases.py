@@ -1,7 +1,7 @@
 from flask import Blueprint, request, Response, abort, current_app
-from app.model import ApiError
-from app.model.case import Case
-from app.persistence.db import DBConnection
+from model import ApiError
+from model.case import Case
+from persistence.db import DBConnection
 from typing import Any, Optional, List
 
 

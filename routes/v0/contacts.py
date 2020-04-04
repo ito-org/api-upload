@@ -1,8 +1,8 @@
 from flask import Blueprint, request, Response, abort, current_app
-from app.model import ApiError
-from app.model.contact import Contact
+from model import ApiError
+from model.contact import Contact
+from persistence.db import DBConnection
 from typing import Any, Optional, List
-from app.persistence.db import DBConnection
 
 
 def construct_contacts_blueprint(dbConn: DBConnection):
