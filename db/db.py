@@ -37,9 +37,9 @@ class DBConnection:
             conditions["lon"] = lon
         conditions["uuid"] = str(uuid)
 
-        #if last_case is None:
+        # if last_case is None:
         #    conditions["upload_timestamp"] = {"$gte": self.random_time_in_the_past()}
-        #else:
+        # else:
         #    conditions["upload_timestamp"] = {"$gte": last_case["upload_timestamp"]}
         return (case for case in self.db.cases.find(conditions))
 

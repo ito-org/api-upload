@@ -13,7 +13,6 @@ from models.contact import Contact
 import os
 
 
-
 def generate_random_cases(dbConn: DBConnection, n: int) -> List[Case]:
     cases: List[Case] = []
     for _ in repeat(None, n):
