@@ -14,7 +14,7 @@ def test_insert(client: FlaskClient):
     cases: list = generate_random_cases(n)
     res: Response = client.post(
         url_for("v0.cases.report"),
-        data=json.dumps(cases, cls=CaseEncoder),
+        data=json.dumps([case.__dict__ for case in cases], cls=CaseEncoder),
         content_type="application/json",
     )
     assert res.status_code == 201
