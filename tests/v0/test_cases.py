@@ -1,6 +1,6 @@
 from flask import url_for
 from uuid import uuid4, UUID
-from persistence.db import DBConnection
+from db.db import DBConnection
 import json
 from flask.testing import FlaskClient
 from flask import Response

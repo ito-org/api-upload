@@ -6,8 +6,8 @@ from uuid import uuid4, UUID
 from random import randrange, uniform
 import time
 from itertools import repeat
-from model.case import Case
-from model.contact import Contact
+from models.case import Case
+from models.contact import Contact
 
 
 class DBConnection:

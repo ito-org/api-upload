@@ -1,7 +1,7 @@
 from flask import Flask
 import os
 from flask import Flask
-from persistence.db import DBConnection
+from db.db import DBConnection
 
 from routes.v0 import construct_cases_blueprint
 from routes.v0 import construct_contacts_blueprint
