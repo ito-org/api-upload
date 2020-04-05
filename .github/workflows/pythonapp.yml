@@ -52,5 +52,5 @@ jobs:
       - name: Test with pytest
         run: poetry run pytest
         env:
-          MONGO_URI: mongodb://localhost:27017
+          MONGO_URI: ${{ secrets.MongoUri }}
           FLASK_ENV: testing
