@@ -5,7 +5,7 @@ from db.db import DBConnection
 from typing import Any, Optional, List
 
 
-def construct_contacts_blueprint(dbConn: DBConnection):
+def construct_contacts_blueprint(dbConn: DBConnection) -> Blueprint:
     contacts = Blueprint("v0.contacts", __name__, url_prefix="/v0/contacts")
 
     @contacts.route("/report", methods=["POST"])

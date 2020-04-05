@@ -7,7 +7,7 @@ from uuid import UUID
 import json
 
 
-def construct_cases_blueprint(dbConn: DBConnection):
+def construct_cases_blueprint(dbConn: DBConnection) -> Blueprint:
     cases = Blueprint("v0.cases", __name__, url_prefix="/v0/cases")
 
     @cases.route("/", methods=["GET"], strict_slashes=False)
@@ -31,7 +31,7 @@ def construct_cases_blueprint(dbConn: DBConnection):
 
         def generate() -> Generator[str, None, None]:
             for case in cases:
-                case_uuid = str(case["uuid"])
+                case_uuid = str(case.uuid)
                 yield case_uuid + ","
 
         return Response(generate(), mimetype="application/octet-stream")

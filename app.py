@@ -3,8 +3,8 @@ import os
 from flask import Flask
 from db.db import DBConnection
 
-from routes.v0 import construct_cases_blueprint
-from routes.v0 import construct_contacts_blueprint
+from routes.v0.cases import construct_cases_blueprint
+from routes.v0.contacts import construct_contacts_blueprint
 
 
 def create_app() -> Flask:
