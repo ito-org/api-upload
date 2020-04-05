@@ -1,5 +1,5 @@
 from flask import Flask
-from pymongo import MongoClient # type: ignore
+from pymongo import MongoClient  # type: ignore
 from typing import Optional, Dict, Any, Iterator, List
 from uuid import uuid4, UUID
 from datetime import datetime, timedelta
