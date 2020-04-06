@@ -6,6 +6,8 @@ from uuid import uuid4, UUID
 from random import randrange, uniform
 import time
 from itertools import repeat
+from app.model.case import Case
+from app.model.contact import Contact
 
 
 class DBConnection:
@@ -21,7 +23,8 @@ class DBConnection:
     def count_cases(self) -> int:
         return int(self.db.cases.count_documents({}))
 
-    def insert_contact(self) -> None:
+    def insert_contacts(contacts: List[Contact]) -> None:
+        mongo.db.contacts.insert_many(contacts)
         return
 
     def random_time_in_the_past(self) -> datetime:
