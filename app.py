@@ -1,32 +1,25 @@
 from flask import Flask
 import os
-from flask import Flask
+import json
+from flask import Flask, Response, request
 from db.db import DBConnection
+from models.api import APIError
 
-from routes.v0.cases import construct_cases_blueprint
-from routes.v0.contacts import construct_contacts_blueprint
-
-
-def create_app() -> Flask:
-    app = Flask(__name__)
-
-    env = os.environ.get("FLASK_ENV", "production")
-    if env == "production":
-        app.config.from_object("config.ProductionConfig")
-    elif env == "development":
-        app.config.from_object("config.DevelopmentConfig")
-    elif env == "testing":
-        app.config.from_object("config.TestingConfig")
-        mongo_uri = os.environ.get("MONGO_URI")
-        if mongo_uri is not None:
-            app.config.update({"MONGO_URI": mongo_uri})
-
-    dbConn = DBConnection(os.environ.get("MONGO_URI"))
-
-    app.register_blueprint(construct_cases_blueprint(dbConn))
-    app.register_blueprint(construct_contacts_blueprint(dbConn))
-
-    return app
+app = Flask(__name__)
+dbConn = DBConnection(os.environ.get("MONGO_URI"))
 
 
-app: Flask = create_app()
+@app.route("/report", methods=["GET", "POST"])
+def report_handler():
+    if request.method == "GET":
+        return Response(
+            json.dumps(dbConn.get_reportsigs()), 200, mimetype="application/json"
+        )
+    else:
+        data = request.get_json()
+        if "reportsig" not in data or "timestamp" not in data:
+            return APIError(400, "Missing values in request").as_response()
+        reportsig = data["reportsig"]
+        timestamp = data["timestamp"]
+        dbConn.insert_reportsig(reportsig, timestamp)
+        return Response(None, 200)
