@@ -3,7 +3,7 @@ from flask import Response
 from typing import Optional
 
 
-class ApiError:
+class APIError:
     code: int
     message: str
 
