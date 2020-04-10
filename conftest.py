@@ -1,8 +1,8 @@
 from flask import Flask
 import pytest  # type: ignore
-from app import create_app
+from app import app as theapp
 
 
 @pytest.fixture  # type: ignore
 def app() -> Flask:
-    return create_app()
+    return theapp

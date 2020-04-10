@@ -17,8 +17,7 @@ class DBConnection:
         self.db = client.ito
 
     def insert_reportsig(self, reportsig: str, timestamp: datetime) -> None:
-        self.db.reportsigs.insert_one(
-            {"reportsig": reportsig, "timestamp": timestamp})
+        self.db.reportsigs.insert_one({"reportsig": reportsig, "timestamp": timestamp})
 
     def get_reportsigs(self) -> List[str]:
         return list(self.db.reportsigs.find({}, {"_id": False}))
