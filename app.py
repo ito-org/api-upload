@@ -10,7 +10,7 @@ dbConn = DBConnection(os.environ.get("MONGO_URI"))
 
 
 @app.route("/report", methods=["GET", "POST"])
-def report():
+def report() -> Response:
     if request.method == "GET":
         return Response(
             json.dumps(dbConn.get_reportsigs()), 200, mimetype="application/json"
