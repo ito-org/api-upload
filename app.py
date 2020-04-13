@@ -1,7 +1,7 @@
 from flask import Flask
 import os
 import json
-from pymongo.errors import DuplicateKeyError
+from pymongo.errors import DuplicateKeyError #type: ignore
 from flask import Flask, Response, request
 from db.db import DBConnection
 from models.api import APIError
