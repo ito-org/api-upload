@@ -15,7 +15,8 @@ def test_report_post(client: FlaskClient):
         url_for(".report"), data=json.dumps(data), content_type="application/json"
     )
     assert res.status_code == 200
-    
+
+
 def test_report_post_duplicate(client: FlaskClient):
     duplicate_reportsig = "duplicate"
 
