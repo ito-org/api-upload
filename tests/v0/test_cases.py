@@ -36,4 +36,4 @@ def test_report_post_duplicate(client: FlaskClient):
     res2: Response = client.post(
         url_for(".report"), data=json.dumps(data2), content_type="application/json"
     )
-    assert res2.status_code == 403
+    assert res2.status_code == 200
