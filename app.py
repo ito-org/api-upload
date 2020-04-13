@@ -25,6 +25,6 @@ def report() -> Response:
 
         try:
             dbConn.insert_reportsig(reportsig, timestamp)
-        except DuplicateKeyError:
-            return APIError(403, "Entry with with this reportsig already exists").as_response()
+        except:
+            pass
         return Response(None, 200)
