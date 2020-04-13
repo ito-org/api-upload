@@ -1,6 +1,7 @@
 from flask import Flask
 import os
 import json
+from pymongo.errors import DuplicateKeyError
 from flask import Flask, Response, request
 from db.db import DBConnection
 from models.api import APIError
@@ -21,5 +22,9 @@ def report() -> Response:
             return APIError(400, "Missing values in request").as_response()
         reportsig = data["reportsig"]
         timestamp = data["timestamp"]
-        dbConn.insert_reportsig(reportsig, timestamp)
+
+        try:
+            dbConn.insert_reportsig(reportsig, timestamp)
+        except DuplicateKeyError:
+            return APIError(403, "Entry with with this reportsig already exists").as_response()
         return Response(None, 200)
