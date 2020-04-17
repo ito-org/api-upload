@@ -3,6 +3,7 @@ from app.model import ApiError
 from app.model.case import Case
 from app.persistence.db import insert_cases
 from typing import Any, Optional, List
+import uuid
 
 cases = Blueprint("v0.cases", __name__, url_prefix="/v0/cases")
 
@@ -17,5 +18,24 @@ def report() -> Response:
         return ApiError(
             400, "please use the application/json content type",
         ).as_response()
-    insert_cases(cases)
+
+    valid_cases: List[Case] = list()
+
+    for case in cases:
+        id = is_valid_uuid(str(case["uuid"]))
+        print(id)
+        if id is not None:
+            valid_cases.append(case)
+        else:
+            continue
+
+    if valid_cases:
+        insert_cases(valid_cases)
+
     return Response(None, status=201)
+
+def is_valid_uuid(val):
+    try:
+        return uuid.UUID(str(val))
+    except ValueError:
+        return None
